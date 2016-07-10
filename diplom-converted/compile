@@ -1,0 +1,4 @@
+#!/bin/bash
+pdflatex odt-15.tex
+pdflatex odt-15.tex
+evince odt-15.pdf
