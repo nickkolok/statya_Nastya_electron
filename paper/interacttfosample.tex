@@ -1,0 +1,185 @@
+% interacttfosample.tex
+% v1.01 - May 2016
+
+\documentclass[]{interact}
+
+\usepackage{epstopdf}% To incorporate .eps illustrations using PDFLaTeX, etc.
+\usepackage{subfigure}% Support for small, `sub' figures and tables
+\usepackage[english,russian]{babel}
+\usepackage[numbers,sort&compress,merge]{natbib}% Citation support using natbib.sty
+\bibpunct[, ]{[}{]}{,}{n}{,}{,}% Citation support using natbib.sty
+\renewcommand\bibfont{\fontsize{10}{12}\selectfont}% Bibliography support using natbib.sty
+
+\theoremstyle{plain}% Theorem-like structures
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+\newtheorem{notation}{Notation}
+
+\begin{document}
+
+\articletype{REGULAR ARTICLE}
+
+\title{Oscillator strengths for Rydberg states in NaHe}
+
+\author{
+\name{Anastasia S. Chervinskaya, Sergei V. Elfimov, Dmitrii L. Dorofeev, Boris A. Zon}
+\affil{Voronezh State University, 394006 Voronezh, Russia
+}
+}
+
+\maketitle
+
+\begin{abstract}
+With the help of a semi-analytical procedure the oscillator strengths for Rydberg electronic transitions in NaHe molecule are calculated which account for the effects of l-coupling (due to dipole potential of the core). Such effects result in non-zero oscillator strength values for some transitions which are forbidden in the widely used atom-like model of molecular Rydberg states. For the allowed transitions we also report the difference between the atom-like calculations and the calculations which take into account the dipole moment of the molecular core in the frame of one-channel theory.
+\end{abstract}
+
+\begin{keywords}
+Rydberg states; Oscillator strengths; NaHe;
+\end{keywords}
+
+
+\section{Введение}
+Спектроскопия высоковозбужденных состояний представляет собой важную область атомной и молекулярной спектроскопии. Высоковозбужденными считают состояния, энергии которых близки к энергиям ионизации системы.
+Также такие состояния называют ридберговскими. Такие состояния допускают эффективное описание в одночастичном приближении, при котором один из электронов, так называемый ридберговский электрон, обладает большой энергией и движется в поле потенциала атомного или молекулярного остова. В поле остова доминирует монопольный кулоновский потенциал, тогда как вклад высших мультипольных компонент относительно невелик. По этой причине состояние ридберговского электрона близко к водородоподобному, отличие от которого характеризуется поправкой к главному квантовому числу ридберговского электрона, называемой квантовым дефектом. Таким образом, именно анализ квантовых дефектов ридберовских состояний позволяет получить информацию о свойствах остова системы[1].
+Лазерная абляция в металлах недавно сделала возможным погружение атомов различных металлов и небольших кластеров таких атомов в гелиевые нанокапли. Их спектры определяются с использованием лазерно-индуцированной флюоресценции.
+За прошедшие годы были получены и исследованы в инфракрасной и видимой области различные молекулы в гелиевых каплях, начиная с ионов металла до больших органических молекул, а также ряд Ван-дер-Вальсовых комплексов и даже большие кластеры металла. Комплексы MHe+ (M=Li, Na, K) представляют большой интерес. Их изучение важно для понимания процессов, происходящих в плазме, явления нуклеации, фазовых переходов и структур, образующихся в атмосфере[6].
+Теоретическое описание атомных и молекулярных ридберговских состояний весьма важна для интерпретации спектров астрономических объектов[3], в особенности инфракрасной части спектра. В лабораторных условиях ридберговские состояния получают вплоть до значений главного квантового числа $n\approx300$[4]. Высокая чувствительность ридберговских состояний к внешним полям и их дальнодействующие взаимодействия являются очень привлекательными для технологических приложений, например, таких как квантовые вычисления[5].
+
+Теория квантового дефекта (Quantum Defect Theory - QDT) является наиболее удобным методом исследования ридберговских состояний. QDT находит широкое применение в самых различных приложениях атомно- молекулярной спектроскопии, от идентификации спектроскопических данных и высокоточных методов расчетов потенциала ионизации, до описания автоионизации и рассеяния электронов на атомах и ионах. В формализме QDT считается, что ридберговский электрон большую часть времени проводит вдали от атомного или молекулярного остова на расстоянии $r$, значительно превышающем характерный радиус остова $r_c$. При этом взаимодействие электрона с остовом можно считать почти кулоновским; его отличие от кулоновского возникает лишь при $r<r_c$ и учитывается квантовым дефектом, входящим в формулу Ридберга для энергетических уровней:
+
+
+\begin{equation}
+E=-\frac{Z^2}{2\nu^2}=-\frac{Z^2}{2\left(n-\mu\right)^2}
+\end{equation}
+
+В работах Бейтса и Дамгаард был предложен метод расчета сил осцилляторов связанных состояний для простых атомных систем. Таким образом, метод QDT дает также возможность простого расчета сил осцилляторов для электронных переходов, что и было использовано в настоящей работе
+Альтернативный QDT метод вычисления сил осцилляторов связан с использованием модельного потенциала, впервые предложенного в работах Simons (1971) и Martin (1975).
+Ридберговский электрон с достаточно большим угловым моментом значительную часть времени проводит на далеком расстоянии от молекулярного остова. Поэтому на движение электрона оказывают влияние лишь дальнодействующие компоненты остовного потенциала. Эта концепция известна как модель дальнего взаимодействия (long-range interaction model). Кроме кулоновского поля молекулярного остова, роль такого дальнодействующего потенциала в полярных молекулах будет играть дипольный момент остова. Поэтому теория ридберговских состояний в полярных молекулах должна быть основана на корректном учете дипольного момента остова[2].
+К сожалению, традиционные техники компьютерного расчета атомных систем (решения уравнений Хартри-Фокка и т.д.) являются неэффективными для расчета спектра и волновых функций высоковозбужденных состояний. Из-за этого необходимо пользоваться техникой, основанной на методе квантового дефекта[7].
+
+
+
+
+
+
+
+\section{Прямое приближение Борна-Оппенгеймера}
+
+Движение электрона в непроникающем ридберговском состоянии описывается его дальнодействующим взаимодействием с остовом, а именно, взаимодействием с кулоновским потенциалом, комбинированным с потенциалом свободно вращающегося диполя. Для анализа этого взаимодействия мы будем использовать приближение Борна-Оппенгеймера, применимое, когда диполь покоится или медленно движется по сравнению с движением электрона. Показано, что в данном приближении можно разделить радиальные и угловые переменные и в явном виде записать решение уравнения Шредингера для ридберговского электрона.
+Сразу поговорим о границах применимости такого приближения. В прямом приближении Борна-Оппенгеймера момент импульса ридберговского электрона сильно связан с осью симметрии остова. Это имеет место, когда прецессия орбиты ридберговского электрона имеет более высокую частоту, чем вращение молекулы в целом.[8]
+\begin{equation}
+4BJ\ll|\Delta E_{qd}|=\frac{\mu}{\nu^3}
+\end{equation}
+С учетом дипольного взаимодействия мы можем записать гамильтониан ридберговской системы таким образом:
+\begin{equation}
+H=-\frac{\Delta}{2}-\frac{1}{r}+\frac{{\bf dr}}{r^3} 
+\end{equation}
+
+
+\section{Заключение}
+В настоящей работе рассмотрена задача о заряженной частице в кулон-дипольном поле в прямом приближении Борна-Оппенгеймера. Рассмотрен процесс вычисления сил осцилляторов для такой частицы и, в частности, вопрос о вычислении радиальных матричных элементов в подобной системе с использованием модельного потенциала Саймонса и метода Бейтса-Дамгард, а также о вычислении угловых матричных элементов. Рассмотрен вопрос о выборе начала отсчета для вычисления дипольного момента у заряженной системы.
+Произведены расчеты ab initio несколькими различными методами мультипольных моментов системы и вращательных констант, на основе этих результатов произведен анализ применимости прямого приближения Борна-Оппенгеймера для рассматриваемых молекул NaHe, NeH и CaF. Произведено на основе метода QDT методом Бейтс-Дамгард с учетом дипольного взаимодействия в угловой части вычисление сил осцилляторов для данных молекул, в том числе и сил осцилляторов для запрещенных переходов.
+
+
+
+\section*{Acknowledgement(s)}
+
+This work was supported by Grant of the Ministry of Education and Science of RF under Project 832.
+
+
+
+
+
+\begin{thebibliography}{99}
+
+\bibitem{YF73}%1
+G. Young and R.E. Funderlic, J. Appl. Phys. \textbf{44}, 5151 (1973).
+
+\bibitem{NIST}%2
+National Institutes of Standards and Technology, Physics Laboratory, Physical
+  Reference Base. $<$http://physics.nist.gov./PhysRefData/contents.html$>$.
+
+\bibitem{MBG69-74}%3
+H. Massey, E. Burhop and H. Gilbody, editors, \emph{Electronic and Ionic
+  Phenomena}, 5 vols. (Clarendon Press, Oxford, 1969--74).
+
+\bibitem{Mar94}%4
+J.E. Marsden and T.S. Ratiu, \emph{Introduction to Mechanics and Symmetry}
+  (Springer, New York, 1994).
+
+\bibitem{Lev77}%5
+M.D. Levenson, Phys Today \textbf{30} (5), 44--49 (1977).
+
+\bibitem{Tay66}%6
+H.W. Taylor, J. Chem. Soc. \textbf{1966}, 411.
+
+\bibitem{Koz73}%7
+V. Kozub, Fiz. Tekh. Poluprovodn. \textbf{9}, 2284 (1975) [Sov. Phys.
+  Semicond. 9, 1479 (1976)].
+
+\bibitem{Bir71}%8
+L.S. Birks, \emph{Electron Probe Microanalysis}, 2nd ed. (Wiley, New York,
+  1971), p.~40.
+
+\bibitem{Ed72}%9
+D.K. Edwards, in \emph{Proceedings of the 1972 Heat Transfer and Fluid
+  Mechanics Institute}, edited by Raymond~B. Landis and Gary~J. Hordemann
+  (Stanford University, Stanford, CA, 1972), pp. 71--72.
+
+\bibitem{Tho73}%10
+W.J. Thompson and D.R. Albert, US Patent No. 7,430,020 (3 March 1975).
+
+\bibitem{Mos66}%11
+J. Moskowitz, presented at the Midwest Conference on Theoretical Physics,
+  Indiana University, Bloomington, IN, 1966 (unpublished).
+
+\bibitem{Mik26}%12
+R.C. Mikkelson (private communication).
+
+\bibitem{Swa03}%13
+R.T. Swan and C.M. Pitman, Saclay Report No. CEA-R 3147, 1957 (unpublished).
+
+\bibitem{Dan65}%14
+J.B. Danda, Ph.~D. thesis, Harvard University, 1965.
+
+\bibitem{Nak73}%15
+Y. Nakayama and S. Akita, New J. Phys. \textbf{5}, 128 (2003).
+  $<$http://ej.iop.org/links/57/Hd+yfNDozFMnm2H8QoyUKA/njp3\_1\_128.pdf$>$.
+
+\bibitem{HL74}%16
+\emph{Technology: Catastrophe or Commitment?}, film produced by
+  Hobel--Leiterman productions, Toronto (distributed by Document Associates,
+  Inc., 880 Third Ave., New York, NY 10022; released 1974), 16 mm, color,
+  24 min.
+
+\bibitem{Bri72}%17
+N.R. Briggs, computer code \textsc{crux} (Bell Laboratories, Murray Hill, NJ,
+  1972).
+
+\bibitem{Zan03}%18
+F. Zantow, O. Kaczmarek, F. Karsch, P. Petreczky, preprint, hep-lat/0301015
+  (2003). $<$http://www.thphys.uni.heidelberg.de/hep-lat/0301.html$>$.
+
+\bibitem{Rid99}%19
+W. Riddle and H. Lee, in \emph{Biomedical Uses of Radiation}, edited by W.R.
+  Hendee (Wiley-VCH, Weinheim, Germany, 1999).
+
+\bibitem{Gil75}%20a
+T.L. Gilbert, Phys. Rev. B \textbf{12}, 2111 (1975).
+
+\bibitem{Gil74}%20b
+T.L. Gilbert, J. Chem. Phys. \textbf{60}, 3835 (1974).
+
+\end{thebibliography}
+
+
+\end{document}
