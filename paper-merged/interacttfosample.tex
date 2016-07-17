@@ -3,7 +3,16 @@
 
 \documentclass[]{interact}
 
-\usepackage[utf8]{inputenc}
+\usepackage[utf8]{inputenc}% TODO: возможно, убрать. Когда русского текста не останется
+\usepackage{supertabular}% TODO: избавиться
+\usepackage{hhline}% TODO: избавиться, переписав таблицы
+\usepackage{array}% TODO: избавиться
+\usepackage{color}% TODO: избавиться
+\makeatletter
+\newcommand\arraybslash{\let\\\@arraycr}
+\makeatother
+
+
 \usepackage{epstopdf}% To incorporate .eps illustrations using PDFLaTeX, etc.
 \usepackage{subfigure}% Support for small, `sub' figures and tables
 \usepackage[english,russian]{babel}
@@ -84,6 +93,11 @@ E=-\frac{Z^2}{2\nu^2}=-\frac{Z^2}{2\left(n-\mu\right)^2}
 \begin{equation}
 H=-\frac{\Delta}{2}-\frac{1}{r}+\frac{{\bf dr}}{r^3} 
 \end{equation}
+
+
+\input{actualtext.tex}
+
+
 
 
 \section{Заключение}
